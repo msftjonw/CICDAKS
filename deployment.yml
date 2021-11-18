@@ -1,20 +1,20 @@
 ﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: shkube-deployment
+  name: cicdaksdotnetcore-deployment
   labels:
-    app: shkube
+    app: cicdaksdotnetcore
 spec:
   replicas: 1
   template:
     metadata:
-      name: shkube
+      name: cicdaksdotnetcore
       labels:
-        app: shkube
+        app: cicdaksdotnetcore
     spec:
       containers:
-      - name: shkube
-        image: shkube
+      - name: cicdaksdotnetcore
+        image: cicdaksdotnetcore
         imagePullPolicy: IfNotPresent
       restartPolicy: Always
   selector:
@@ -26,10 +26,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: shkube-service
+  name: cicdaksdotnetcore-service
 spec:
   selector:
-    app: shkube
+    app: cicdaksdotnetcore
   ports:
     - port: 80
   type: LoadBalancer
