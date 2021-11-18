@@ -11,12 +11,12 @@ steps:
     containerregistrytype: 'Azure Container Registry'
     azureSubscription: 'jonwterraformsp-ARM'
     azureContainerRegistry: '{"loginServer":"jonwacr.azurecr.io", "id" : "/subscriptions/2de0c33c-f475-4b47-932c-4788d7d5b84e/resourceGroups/RG-AKS/providers/Microsoft.ContainerRegistry/registries/jonwacr"}'
-    dockerComposeFile: '**/docker-compose.yml'
-    action: 'Build a Docker image and run the app'
+    dockerComposeFile: 'docker-compose.yml'
+    action: 'Build services'
 
 - task: CopyFiles@2
   inputs:
-    Contents: '**/deployment.yml'
+    Contents: 'deployment.yml'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
