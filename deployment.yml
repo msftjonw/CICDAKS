@@ -1,7 +1,7 @@
 ﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cicdaksdotnetcore-deployment
+  name: deploy-cicdaksdotnetcore
   labels:
     app: cicdaksdotnetcore
 spec:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: cicdaksdotnetcore
-        image: cicdaksdotnetcore
+        image: nginx:latest
         imagePullPolicy: IfNotPresent
       restartPolicy: Always
   selector:
@@ -26,7 +26,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: cicdaksdotnetcore-service
+  name: svc-cicdaksdotnetcore
 spec:
   selector:
     app: cicdaksdotnetcore
