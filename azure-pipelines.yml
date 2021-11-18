@@ -11,7 +11,7 @@ steps:
     azureSubscription: 'jonwterraformsp-ARM'
     azureContainerRegistry: '{"loginServer":"jonwazdevopsacr.azurecr.io", "id" : "/subscriptions/2de0c33c-f475-4b47-932c-4788d7d5b84e/resourceGroups/RG-AzureDevOps2/providers/Microsoft.ContainerRegistry/registries/jonwazdevopsacr"}'
     dockerComposeFile: '**/docker-compose.yml'
-    action: 'Run a Docker Compose command'
+    action: 'Build services'
 
 - task: CopyFiles@2
   inputs:
