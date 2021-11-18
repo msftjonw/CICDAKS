@@ -2,7 +2,7 @@
 
 services:
   shkube:
-    image: shkube
+    image: cicdaksdotnetcore
     build:
       context: .
       dockerfile: Dockerfile
