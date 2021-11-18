@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: cicdaksdotnetcore
-        image: nginx:latest
+        image: jonwazdevopsacr.azurecr.io/nginx:v1
         imagePullPolicy: IfNotPresent
       restartPolicy: Always
   selector:
