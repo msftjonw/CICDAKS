@@ -1,0 +1,24 @@
+pool:
+  vmImage: 'Ubuntu 16.04'
+
+steps:
+- task: DockerCompose@0
+  displayName: 'Build a Docker image and run the app'
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'jonwterraformsp-ARM'
+    azureContainerRegistry: '{"loginServer":"jonwacr.azurecr.io", "id" : "/subscriptions/2de0c33c-f475-4b47-932c-4788d7d5b84e/resourceGroups/RG-AKS/providers/Microsoft.ContainerRegistry/registries/jonwacr"}'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Build a Docker image and run the app'
+
+- task: CopyFiles@2
+  inputs:
+    Contents: '**/deployment.yml'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+
